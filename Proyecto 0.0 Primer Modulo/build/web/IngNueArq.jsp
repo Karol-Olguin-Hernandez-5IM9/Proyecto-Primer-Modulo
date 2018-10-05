@@ -14,7 +14,7 @@
     </head>
     <body>
         <div style=" position: static; left: 50%; text-align: center">
-            <form action="Registro" method="Post">
+            <form action="IngRol" method="Post">
             <h1>Registro de Usuario</h1><br><br>
             
                 <p>Nombre</p><input type="text" name="Nom"><br><br>

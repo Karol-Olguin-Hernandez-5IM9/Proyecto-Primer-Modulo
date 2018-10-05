@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import Clases.Conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,15 +33,7 @@ public class IngRol extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet IngRol</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet IngRol at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
         }
     }
 
@@ -73,7 +66,20 @@ public class IngRol extends HttpServlet {
         String Nombre = request.getParameter("Nom");
         String ApeP = request.getParameter("Ap");
         String ApeM = request.getParameter("Am");
-        String Rol = request.getParameter("Rol");
+        int Rol =Integer.parseInt(request.getParameter("Rol"));
+        
+        Conexion cone= new Conexion();
+        PrintWriter out = response.getWriter();
+        out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet IngRol</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>" +cone.IngRol(Nombre, ApeP, ApeM, Rol) +"</h1>");
+            out.println("<a href=\"/ProyectoPM/index.html\">Finalizar Sesión</a><br>");
+            out.println("</body>");
+            out.println("</html>");
         
         
     }

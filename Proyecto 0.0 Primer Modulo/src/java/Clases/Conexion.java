@@ -101,8 +101,11 @@ public class Conexion {
             
             res=sta.executeQuery("select * from Usuario where Nom='"+Nom+"' and ApeP='"+Ap+"' and ApeM='"+Am+"';");
             if(res.next()){
-                sta.executeUpdate("update Usuario set IdRol='"+R+"' where Usua='"+Nom+"';");
+                sta.executeUpdate("Update Usuario set IdRol='"+R+"' where Nom='"+Nom+"';");
+                Rol="Rol asignado";
             }
+            else
+                Rol="Persona no encontrada";
         }
         
         catch(Exception e){
