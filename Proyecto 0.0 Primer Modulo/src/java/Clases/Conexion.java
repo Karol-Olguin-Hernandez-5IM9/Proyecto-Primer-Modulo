@@ -114,6 +114,30 @@ public class Conexion {
          
         return Rol;
     }
-    
+    public String Mostrar(){
+        String M="No hay Usuarios";
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            con=DriverManager.getConnection(url, User, Pass);
+            sta=con.createStatement();
+            
+            res=sta.executeQuery("select * from Usuario where idrol=3;");
+            while(res.next()){
+                String Nom=res.getString("Nom");
+                String Ap=res.getString("ApeM");
+                String Am=res.getString("ApeP");
+                
+                M= Nom +" "+ Ap+ " "+ Am;
+            }
+
+        }
+        
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+        return M;
+         
+    }
 }
 
